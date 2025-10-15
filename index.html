@@ -1,57 +1,99 @@
+<a href="/GameForge/games/universal-scale/index.html" class="game-card"> 
+                <h2>How Big Is It, Really?</h2>
+                <p>A fun, minimalist tool to visualize extreme scales and numbers.</p>
+                <div class="tag">Coming Soon</div>
+            </a>
+            ```
+*(If you used the root-relative path fix `/RepoName/` for the first game, you must use it here too!)*
+
+---
+
+## 2. New Game HTML (`/universal-scale/index.html`)
+
+Create the `index.html` file in the new `/universal-scale/` folder. This includes the header, the link back to the hub (using the necessary `../../` path), and a container for our scale visualization.
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GameForge Hub - Interactive Portal</title>
-    <link rel="stylesheet" href="style.css"> 
-</head>
-<body>
-
-    <header class="main-header">
-        <a href="index.html" class="logo">GameForge</a>
+    <title>How Big Is It, Really?</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #1a1a2e; /* Deep space background */
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
         
-        <nav class="nav-menu" id="navMenu">
-            <a href="index.html" class="nav-item active">Home</a>
-            <a href="#" class="nav-item">About</a>
-            <a href="#" class="nav-item">Contact</a>
-        </nav>
-
-        <button class="menu-toggle" aria-controls="navMenu" aria-expanded="false">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
-        </button>
-    </header>
-
-    <main class="content-area">
-        <h1>Welcome to the Interactive Forge.</h1>
-        <p class="subtitle">Explore simple, surprising, and thought-provoking experiences.</p>
+        /* Game Header for Navigation */
+        .game-header {
+            width: 100%;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
         
-        <section class="game-gallery">
-            
-            <a href="/GameForge/Games/precision-parking/index.html" class="game-card">
-                <h2>Driving Test: Precision Parking</h2>
-                <p>Use arrow keys to park a vehicle in randomly generated spots.</p>
-                <div class="tag">NEW</div>
-            </a>
-            
-            <a href="games/game-name-2/index.html" class="game-card">
-                <h2>Game Concept Two</h2>
-                <p>An experimental comparison or scale-based tool.</p>
-                <div class="tag coming-soon">Coming Soon</div>
-            </a>
-            
-            <a href="#" class="game-card placeholder">
-                <h2>Future Project</h2>
-                <p>What brilliant idea will you forge next?</p>
-                <div class="tag coming-soon">Idea Slot</div>
-            </a>
+        .back-link {
+            text-decoration: none;
+            color: #90caf9; /* Light blue accent */
+            font-weight: 600;
+            font-size: 1rem;
+        }
 
-        </section>
-    </main>
+        .game-content {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 90%;
+            max-width: 900px;
+            text-align: center;
+        }
 
-    <script src="main.js"></script>
-</body>
-</html>
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+        }
 
+        /* Visualization Area */
+        #visualizationContainer {
+            width: 100%;
+            height: 400px;
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+            padding: 20px;
+            box-shadow: 0 0 20px rgba(144, 202, 249, 0.2);
+            position: relative;
+        }
+
+        .scale-info {
+            font-size: 1.5rem;
+            margin-top: 20px;
+        }
+
+        /* Simple placeholder for the visual comparison */
+        #objectA, #objectB {
+            font-size: 1.2rem;
+            padding: 10px 20px;
+            border-radius: 8px;
+            margin: 10px;
+            transition: all 0.5s ease-out;
+        }
+
+        #objectA { background-color: #ff4081; } /* Pink */
+        #objectB { background-color: #4CAF50; } /* Green */
+
+        /* The
