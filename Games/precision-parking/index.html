@@ -3,52 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GameForge Hub - Interactive Portal</title>
-    <link rel="stylesheet" href="style.css"> 
+    <title>Precision Parking Challenge</title>
+    <style>
+        /* Note: Styles are kept here for simplicity, 
+           but you could link to a separate game.css file */
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #e0e0e0; 
+            font-family: Arial, sans-serif;
+        }
+
+        .game-header {
+            width: 800px; /* Match canvas width */
+            padding: 10px 0;
+            margin-bottom: 5px;
+            display: flex;
+            justify-content: flex-start;
+        }
+        
+        .back-link {
+            text-decoration: none;
+            color: #3f51b5; /* Primary color */
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        #gameCanvas {
+            border: 5px solid #333;
+            background-color: #4CAF50;
+        }
+
+        .controls-info, .status-message {
+            margin-top: 20px;
+            font-size: 1.2rem;
+            color: #333;
+        }
+    </style>
 </head>
 <body>
 
-    <header class="main-header">
-        <a href="index.html" class="logo">GameForge</a>
-        
-        <nav class="nav-menu" id="navMenu">
-            <a href="index.html" class="nav-item active">Home</a>
-            <a href="#" class="nav-item">About</a>
-            <a href="#" class="nav-item">Contact</a>
-        </nav>
-
-        <button class="menu-toggle" aria-controls="navMenu" aria-expanded="false">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
-        </button>
+    <header class="game-header">
+        <a href="/GameForge/index.html" class="back-link">← Back to GameForge Hub</a>
     </header>
 
-    <main class="content-area">
-        <h1>Welcome to the Interactive Forge.</h1>
-        <p class="subtitle">Explore simple, surprising, and thought-provoking experiences.</p>
-        
-        <section class="game-gallery">
-            
-            <a href="/GameForge/games/precision-parking/index.html" class="game-card">
-                <h2>Driving Test: Precision Parking</h2>
-                <p>Use arrow keys to park a vehicle in randomly generated spots.</p>
-                <div class="tag">NEW</div>
-            </a>
-            
-            <a href="#" class="game-card placeholder">
-                <h2>Future Project</h2>
-                <p>What brilliant idea will you forge next?</p>
-                <div class="tag coming-soon">Idea Slot</div>
-            </a>
+    <div class="status-message" id="statusMessage">
+        Park the car! Use the arrow keys (↑↓ to accelerate/brake, ←→ to steer).
+    </div>
 
-        </section>
-    </main>
+    <canvas id="gameCanvas" width="800" height="600"></canvas>
 
-    <footer class="main-footer">
-        <p>Made by Haron With Love</p>
-    </footer>
+    <div class="controls-info">
+        Level: <span id="levelDisplay">1</span> | Score: <span id="scoreDisplay">0</span>
+    </div>
 
-    <script src="main.js"></script>
+    <script src="game.js"></script>
 </body>
 </html>
