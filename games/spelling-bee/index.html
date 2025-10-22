@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Forge Spelling Bee</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f4f8; /* Light, clean background */
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
+        /* Game Header for Navigation */
+        .game-header {
+            width: 100%;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+        }
+        
+        .back-link {
+            /* This path MUST go up two levels to the main hub */
+            text-decoration: none;
+            color: #3f51b5; /* Primary Hub Color */
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        .game-content {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 90%;
+            max-width: 600px;
+            text-align: center;
+            padding-bottom: 50px;
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+
+        .info {
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+            color: #7f8c8d;
+        }
+
+        /* Interaction Elements */
+        #wordContainer {
+            margin-bottom: 30px;
+        }
+        
+        #speakButton {
+            background-color: #4CAF50; /* Green */
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: background-color 0.2s;
+        }
+
+        #speakButton:hover {
+            background-color: #45a049;
+        }
+
+        #spellingInput {
+            width: 100%;
+            padding: 15px;
+            margin-top: 20px;
+            font-size: 1.5rem;
+            text-align: center;
+            border: 2px solid #ccc;
+            border-radius: 8px;
+        }
+
+        #checkButton {
+            background-color: #3f51b5; /* Primary color */
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            border-radius: 8px;
+            margin-top: 15px;
+            transition: background-color 0.2s;
+        }
+
+        #checkButton:hover {
+            background-color: #303f9f;
+        }
+
+        #resultMessage {
+            margin-top: 30px;
+            font-size: 1.4rem;
+            font-weight: bold;
+            min-height: 40px;
+        }
+
+        #scoreDisplay {
+            position: absolute;
+            top: 20px;
+            right: 40px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #e67e22; /* Orange accent */
+        }
+    </style>
+</head>
+<body>
+
+    <header class="game-header">
+        <a href="/GameForge/index.html" class="back-link">← Back to GameForge Hub</a>
+        <div id="scoreDisplay">Score: 0</div>
+    </header>
+
+    <main class="game-content">
+        <h1>The Forge Spelling Bee</h1>
+        <p class="info">Listen carefully to the word, then type the correct spelling below.</p>
+        
+        <div id="wordContainer">
+            <button id="speakButton">📣 Click to Hear Word</button>
+        </div>
+
+        <input type="text" id="spellingInput" placeholder="Type your spelling here" autocomplete="off">
+        
+        <button id="checkButton">Check Spelling</button>
+
+        <div id="resultMessage"></div>
+    </main>
+
+    <script src="game.js"></script>
+</body>
+</html>
