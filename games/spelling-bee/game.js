@@ -1,17 +1,14 @@
 // --- Configuration ---
-// --- Configuration ---
 const WORD_LIST = [
-    // Original 40 Words (from earlier request)
-    'wombat', 'spatula', 'cucumber', 'zephyr', 
-    'moustache',
+    // 240 Absurdly Unrelated Words
+    'wombat', 'spatula', 'cucumber', 'zephyr', 'quixotic', 
+    'flummox', 'cerulean', 'trombone', 'gherkin', 'moustache',
     'umbrella', 'jubilee', 'tesseract', 'nostril', 'llama', 
     'sardine', 'goblet', 'razzmatazz', 'floccinaucinihilipilification', 'gazebo',
     'talisman', 'vex', 'bicycle', 'kryptonite', 'parapet', 
     'ethereal', 'pumpernickel', 'sloth', 'chandelier', 'zucchini',
     'obfuscate', 'fjord', 'manatee', 'octopus', 'rendezvous', 
     'syzygy', 'vermillion', 'waffle', 'xylophone', 'yacht',
-
-    // New 200 Words (Continued list)
     'alchemy', 'bivouac', 'cadence', 'dichotomy', 'ennui', 
     'fiasco', 'gargoyle', 'haphazard', 'idiosyncrasy', 'jargon', 
     'kinetic', 'labyrinth', 'mellifluous', 'nebulous', 'overture', 
@@ -39,64 +36,25 @@ const WORD_LIST = [
     'tantamount', 'unctuous', 'vicarious', 'whimsical', 'xenophobia', 
     'yonder', 'zealous', 'amalgam', 'bungalow', 'crescendo', 
     'delineate', 'emissary', 'furtive', 'gondola', 'hirsute', 
-    'insolent', 'jejune', 'kismet', 'languid', 'mirth', 
-    'nadir', 'ostracize', 'palpable', 'querulous', 'ruminate', 
-    'succinct', 'tryst', 'unfurl', 'vacillate', 'wrangle', 
-    'yeast', 'zodiac', 'ablution', 'bivouac', 'cacophony', 
-    'derelict', 'echelon', 'facetious', 'garrulous', 'halcyon', 
-    'inexorable', 'jettison', 'kohlrabi', 'lugubrious', 'mellifluous', 
-    'nihilism', 'obsequious', 'paucity', 'quorum', 'repudiate', 
-    'serpentine', 'tacit', 'unfettered', 'vacillate', 'wallow', 
-    'yore', 'zeitgeist', 'anachronism', 'bucolic', 'capricious', 
-    'diaphanous', 'effulgence', 'fugacious', 'garrulous', 'halyard', 
-    'invidious', 'juggernaut', 'knell', 'liminal', 'maelstrom', 
-    'nomenclature', 'ominous', 'pernicious', 'quintessential', 'reticent', 
-    'salient', 'truncate', 'umbrage', 'vivacious', 'wallow', 
-    'yore', 'zeitgeist', 'anachronism', 'bucolic', 'capricious', 
-    'diaphanous', 'effulgence', 'fugacious', 'garrulous', 'halyard', 
-    'invidious', 'jettison', 'kohlrabi', 'lugubrious', 'mellifluous', 
-    'nihilism', 'obsequious', 'paucity', 'quorum', 'repudiate', 
-    'serpentine', 'tacit', 'unfettered', 'vacillate', 'wallow', 
-    'yore', 'zeitgeist', 'anachronism', 'bucolic', 'capricious', 
-    'diaphanous', 'effulgence', 'fugacious', 'garrulous', 'halyard', 
-    'invidious', 'jettison', 'kohlrabi', 'lugubrious', 'mellifluous', 
-    'nihilism', 'obsequious', 'paucity', 'quorum', 'repudiate', 
-    'serpentine', 'tacit', 'unfettered', 'vacillate', 'wallow', 
-    'yore', 'zeitgeist', 'anachronism', 'bucolic', 'capricious', 
-    'diaphanous', 'effulgence', 'fugacious', 'garrulous', 'halyard', 
-    'invidious', 'jettison', 'kohlrabi', 'lugubrious', 'mellifluous', 
-    'nihilism', 'obsequious', 'paucity', 'quorum', 'repudiate', 
-    'serpentine', 'tacit', 'unfettered', 'vacillate', 'wallow', 
-    'yore', 'zeitgeist', 'anachronism', 'bucolic', 'capricious', 
-    'diaphanous', 'effulgence', 'fugacious', 'garrulous', 'halyard', 
-    'invidious', 'jettison', 'kohlrabi', 'lugubrious', 'mellifluous', 
-    'nihilism', 'obsequious', 'paucity', 'quorum', 'repudiate', 
-    'serpentine', 'tacit', 'unfettered', 'vacillate', 'wallow', 
-    'yore', 'zeitgeist', 'anachronism', 'bucolic', 'capricious', 
-    'diaphanous', 'effulgence', 'fugacious', 'garrulous', 'halyard', 
-    'invidious', 'jettison', 'kohlrabi', 'lugubrious', 'mellifluous', 
-    'nihilism', 'obsequious', 'paucity', 'quorum', 'repudiate', 
-    'serpentine', 'tacit', 'unfettered', 'vacillate', 'wallow', 
-    'yore', 'zeitgeist', 'anachronism', 'bucolic', 'capricious', 
-    'diaphanous', 'effulgence', 'fugacious', 'garrulous', 'halyard', 
-    'invidious', 'jettison', 'kohlrabi', 'lugubrious', 'mellifluous', 
-    'nihilism', 'obsequious', 'paucity', 'quorum', 'repudiate', 
-    'serpentine', 'tacit', 'unfettered', 'vacillate', 'wallow', 
-    'yore', 'zeitgeist', 'anachronism', 'bucolic', 'capricious', 
-    'diaphanous', 'effulgence', 'fugacious', 'garrulous', 'halyard', 
-    'invidious', 'jettison', 'kohlrabi', 'lugubrious', 'mellifluous', 
-    'nihilism', 'obsequious', 'paucity', 'quorum', 'repudiate', 
-    'serpentine', 'tacit', 'unfettered', 'vacillate', 'wallow', 
-    'yore', 'zeitgeist', 'anachronism', 'bucolic', 'capricious', 
-    'diaphanous', 'effulgence', 'fugacious', 'garrulous', 'halyard', 
-    'invidious', 'jettison', 'kohlrabi', 'lugubrious', 'mellifluous', 
-    'nihilism', 'obsequious', 'paucity', 'quorum', 'repudiate', 
-    'serpentine', 'tacit', 'unfettered', 'vacillate', 'wallow', 
-    'yore', 'zeitgeist'
+    'insolent', 'jejune', 'mirth', 'nadir', 'ostracize', 
+    'palpable', 'querulous', 'ruminate', 'succinct', 'tryst', 
+    'unfurl', 'vacillate', 'wrangle', 'yeast', 'zodiac', 
+    'ablution', 'bivouac', 'cacophony', 'derelict', 'echelon', 
+    'facetious', 'garrulous', 'halcyon', 'inexorable', 'jettison', 
+    'kohlrabi', 'lugubrious', 'mellifluous', 'nihilism', 'obsequious', 
+    'paucity', 'quorum', 'repudiate', 'serpentine', 'tacit', 
+    'unfettered', 'vacillate', 'wallow', 'yore', 'zeitgeist', 
+    'anachronism', 'bucolic', 'capricious', 'diaphanous', 'effulgence', 
+    'fugacious', 'gregarious', 'hapless', 'impetus', 'jubilant', 
+    'kismet', 'languish', 'mirage', 'nonchalant', 'obeisance', 
+    'perfunctory', 'quagmire', 'reticent', 'salient', 'succinct', 
+    'tantamount', 'unctuous', 'vicarious', 'whimsical', 'xenophobia', 
+    'yonder', 'zealous', 'amalgam', 'bungalow', 'crescendo', 
+    'delineate', 'emissary', 'furtive', 'gondola', 'hirsute'
 ];
 let currentWord = '';
-// ... rest of the filelet currentWord = '';
 let score = 0;
+let availableVoices = []; // NEW: Variable to hold the browser's voice list
 
 // --- DOM Elements ---
 const speakButton = document.getElementById('speakButton');
@@ -105,26 +63,38 @@ const inputField = document.getElementById('spellingInput');
 const resultMessage = document.getElementById('resultMessage');
 const scoreDisplay = document.getElementById('scoreDisplay');
 
+// --- Voice Loading (CRITICAL for setting a specific accent) ---
+function loadVoices() {
+    availableVoices = window.speechSynthesis.getVoices();
+    // OPTIONAL: You can uncomment this line to see the voice names in your console:
+    // console.log("Available Voices:", availableVoices);
+}
+
+// Ensure voices are loaded, as it's an asynchronous process
+if ('speechSynthesis' in window) {
+    speechSynthesis.onvoiceschanged = loadVoices;
+    loadVoices(); // Initial attempt to load voices
+}
+
+
 // --- Functions ---
 
 /**
  * Selects a random word and stores it globally.
  */
 function getNewWord() {
-    // If the word list is exhausted, restart or show a message
     if (WORD_LIST.length === 0) {
-        resultMessage.textContent = 'You spelled all the words! Restarting...';
-        // Simple way to restart the game state if needed
+        resultMessage.textContent = 'You spelled all 240 words! Restarting...';
         setTimeout(() => location.reload(), 3000); 
         return;
     }
     
-    // Choose a random word
+    // Choose a random word and remove it from the list
     const randomIndex = Math.floor(Math.random() * WORD_LIST.length);
-    currentWord = WORD_LIST.splice(randomIndex, 1)[0]; // Removes word from list to prevent repetition
+    currentWord = WORD_LIST.splice(randomIndex, 1)[0]; 
     
-    inputField.value = ''; // Clear input field
-    resultMessage.textContent = ''; // Clear result message
+    inputField.value = ''; 
+    resultMessage.textContent = ''; 
     speakButton.textContent = '📣 Click to Hear Word';
     inputField.focus();
 }
@@ -141,6 +111,21 @@ function speakWord() {
     if ('speechSynthesis' in window) {
         const utterance = new SpeechSynthesisUtterance(currentWord);
         
+        // --- VOICE SELECTION LOGIC (To set American accent) ---
+        const americanVoice = availableVoices.find(voice => 
+            // Filter for US English and try to find a standard name
+            voice.lang.startsWith('en-US') && (voice.name.includes('Google') || voice.default)
+        );
+        
+        if (americanVoice) {
+            utterance.voice = americanVoice;
+        } else {
+            // Fallback: Just set the language code to US English
+            utterance.lang = 'en-US'; 
+        }
+        // --- END VOICE SELECTION LOGIC ---
+
+
         // Optional: Set voice properties for a clearer reading
         utterance.rate = 0.8; // Speak a bit slower
         utterance.pitch = 1;
@@ -215,5 +200,4 @@ inputField.addEventListener('keyup', (event) => {
 // Start the game by getting the first word
 document.addEventListener('DOMContentLoaded', () => {
     getNewWord();
-
 });
