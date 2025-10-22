@@ -2,8 +2,8 @@
 // --- Configuration ---
 const WORD_LIST = [
     // Original 40 Words (from earlier request)
-    'wombat', 'spatula', 'cucumber', 'zephyr', 'quixotic', 
-    'flummox', 'cerulean', 'trombone', 'gherkin', 'moustache',
+    'wombat', 'spatula', 'cucumber', 'zephyr', 
+    'moustache',
     'umbrella', 'jubilee', 'tesseract', 'nostril', 'llama', 
     'sardine', 'goblet', 'razzmatazz', 'floccinaucinihilipilification', 'gazebo',
     'talisman', 'vex', 'bicycle', 'kryptonite', 'parapet', 
@@ -215,4 +215,5 @@ inputField.addEventListener('keyup', (event) => {
 // Start the game by getting the first word
 document.addEventListener('DOMContentLoaded', () => {
     getNewWord();
+
 });
