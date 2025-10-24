@@ -48,12 +48,18 @@ function startGame() {
     gameActive = true;
     selectedBlueprints = [];
     
+    // Clear selections on the UI
+    document.querySelectorAll('.blueprint.selected').forEach(el => {
+        el.classList.remove('selected');
+    });
+
     updateDisplay();
-    renderBlueprints();
+    // RenderBlueprints is called during DOMContentLoaded, so only update display and start timer here
     startTimer();
 
     buildButton.textContent = 'Forge Selected Items!';
     resultMessageEl.textContent = 'Forge as much as you can!';
+    resultMessageEl.style.color = '#f1c40f'; // Reset color to default warning color
 }
 
 /**
@@ -88,9 +94,6 @@ function gameOver() {
     buildButton.disabled = false; // Enable for restart
     resultMessageEl.textContent = `Time's up! Your final item value is: $${score}`;
     resultMessageEl.style.color = '#2ecc71'; // Green
-
-    // Optional: Hide blueprints or make them unselectable
-    blueprintListEl.innerHTML = '';
 }
 
 /**
@@ -101,8 +104,9 @@ function updateDisplay() {
     energyValueEl.textContent = inventory.energy;
     scoreDisplayEl.textContent = `Value: $${score}`;
 
-    // Disable button if nothing is selected or if game is over
-    buildButton.disabled = !gameActive || selectedBlueprints.length === 0;
+    // Disable button if game is active AND nothing is selected
+    // Note: The button is ENABLED if the game is NOT active (i.e., when it says 'Start Game')
+    buildButton.disabled = gameActive && selectedBlueprints.length === 0;
 }
 
 /**
@@ -157,27 +161,38 @@ function toggleSelection(event) {
 
 /**
  * Calculates resource costs and attempts to build the selected items.
+ * FIX: This function now correctly detects if the game needs to be started or if a build should happen.
  */
 function handleBuild() {
-    if (!gameActive || selectedBlueprints.length === 0) {
-        startGame(); // If game is over or button says 'Start Game'
+    // 1. Check for Game State: If the game is NOT active, the button must START the game.
+    if (!gameActive) {
+        startGame(); 
+        return; // Exit the function after starting the game, no need to process a build yet.
+    }
+    
+    // 2. Check for Selection: If game is active but nothing is selected, the button should be disabled, 
+    // but this is a safety check.
+    if (selectedBlueprints.length === 0) {
+        resultMessageEl.textContent = 'Please select at least one blueprint to forge!';
+        resultMessageEl.style.color = '#e67e22'; 
         return;
     }
 
+    // --- Core Build Logic Starts Here (Game is active and items are selected) ---
     let totalMetalCost = 0;
     let totalEnergyCost = 0;
     let totalValueGained = 0;
     
     const blueprintsToBuild = selectedBlueprints.map(i => BLUEPRINTS[i]);
 
-    // 1. Calculate total costs and value
+    // Calculate total costs and value
     blueprintsToBuild.forEach(bp => {
         totalMetalCost += bp.metal;
         totalEnergyCost += bp.energy;
         totalValueGained += bp.value;
     });
 
-    // 2. Check resource constraints
+    // 3. Check resource constraints
     if (inventory.metal >= totalMetalCost && inventory.energy >= totalEnergyCost) {
         // Success: Deduct resources and update score
         inventory.metal -= totalMetalCost;
@@ -193,13 +208,13 @@ function handleBuild() {
         resultMessageEl.style.color = '#e74c3c';
     }
 
-    // 3. Reset Selections
+    // 4. Reset Selections
     selectedBlueprints = [];
     document.querySelectorAll('.blueprint.selected').forEach(el => {
         el.classList.remove('selected');
     });
 
-    // 4. Update UI
+    // 5. Update UI
     updateDisplay();
 }
 
