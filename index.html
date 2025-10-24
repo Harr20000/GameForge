@@ -3,61 +3,133 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GameForge Hub - Interactive Portal</title>
-    
-    <base href="/GameForge/"> 
-    
-    <link rel="stylesheet" href="style.css"> 
+    <title>The GameForge Hub</title>
+    <style>
+        :root {
+            /* Define your primary color palette */
+            --color-primary: #3f51b5; /* Blue */
+            --color-secondary: #e67e22; /* Orange */
+            --color-background: #f0f4f8; /* Light Gray */
+            --color-card-bg: #ffffff;
+            --color-text-dark: #2c3e50;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--color-background);
+            color: var(--color-text-dark);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        header {
+            width: 100%;
+            padding: 40px 20px;
+            background-color: var(--color-primary);
+            color: white;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 3rem;
+        }
+
+        header p {
+            margin-top: 10px;
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        main {
+            width: 90%;
+            max-width: 1000px;
+            padding: 40px 20px;
+        }
+
+        h2 {
+            text-align: center;
+            color: var(--color-secondary);
+            margin-bottom: 30px;
+            font-size: 1.8rem;
+        }
+
+        /* Game Grid Layout */
+        .game-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .game-link {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .game-card {
+            background-color: var(--color-card-bg);
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+            border-left: 5px solid var(--color-primary);
+            min-height: 150px;
+        }
+
+        .game-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            border-left: 5px solid var(--color-secondary);
+        }
+
+        .game-card h3 {
+            margin-top: 0;
+            color: var(--color-primary);
+            font-size: 1.5rem;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+            margin-bottom: 10px;
+        }
+
+        .game-card p {
+            font-size: 1rem;
+            color: #555;
+        }
+    </style>
 </head>
 <body>
 
-    <header class="main-header">
-        <a href="index.html" class="logo">GameForge</a> 
-        
-        <nav class="nav-menu" id="navMenu">
-            <a href="index.html" class="nav-item active">Home</a>
-            <a href="#" class="nav-item">About</a>
-            <a href="#" class="nav-item">Contact</a>
-        </nav>
-
-        <button class="menu-toggle" aria-controls="navMenu" aria-expanded="false">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
-        </button>
+    <header>
+        <h1>The GameForge Hub</h1>
+        <p>A collection of mini-games built with JavaScript, HTML, and CSS.</p>
     </header>
 
-    <main class="content-area">
-        <h1>Welcome to the Interactive Forge.</h1>
-        <p class="subtitle">Explore simple, surprising, and thought-provoking experiences.</p>
-        
-        <section class="game-gallery">
-            
-            <a href="games/precision-parking/index.html" class="game-card"> 
-                <h2>Driving Test: Precision Parking</h2>
-                <p>Use arrow keys to park a vehicle in randomly generated spots.</p>
-                <div class="tag">NEW</div>
-            </a>
-            
-            <a href="games/spelling-bee/index.html" class="game-card">
-                <h2>The Forge Spelling Bee</h2>
-                <p>Test your vocabulary and spelling skills in a quick-fire challenge.</p>
-                <div class="tag">NEW</div>
-            </a>
-            
-            <a href="#" class="game-card placeholder">
-                <h2>Future Project</h2>
-                <p>What brilliant idea will you forge next?</p>
-                <div class="tag coming-soon">Idea Slot</div>
-            </a>
+    <main>
+        <h2>Select a Game to Play</h2>
 
-        </section>
+        <section class="game-grid">
+
+            <a href="games/spelling-bee/index.html" class="game-link">
+                <div class="game-card">
+                    <h3>The Forge Spelling Bee 🐝</h3>
+                    <p>Language Challenge: Listen to the word and spell it correctly. Features voice accent customization!</p>
+                </div>
+            </a>
+            
+            <a href="games/forge-allocator/index.html" class="game-link">
+                <div class="game-card">
+                    <h3>The Forge Allocator 🔨</h3>
+                    <p>Resource Management: Allocate limited Metal and Energy to craft the most valuable items before the timer runs out.</p>
+                </div>
+            </a>
+            
+            </section>
     </main>
 
-    <footer class="main-footer">
-        <p>Made by Haron With Love</p>
-    </footer>
-
-    <script src="main.js"></script>
 </body>
 </html>
